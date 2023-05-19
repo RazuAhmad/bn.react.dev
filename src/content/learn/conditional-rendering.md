@@ -1,18 +1,19 @@
 ---
-title: Conditional Rendering
+title: শর্তসাপেক্ষ Rendering
 ---
 
 <Intro>
 
-Your components will often need to display different things depending on different conditions. In React, you can conditionally render JSX using JavaScript syntax like `if` statements, `&&`, and `? :` operators.
+আপনার components গুলোতে প্রায়শই বিভিন্ন শর্তের উপর নির্ভর করে বিভিন্ন জিনিস প্রদর্শন করতে হবে।
+React এর মধ্যে, আপনি শর্তসাপেক্ষে জাভাস্ক্রিপ্ট syntax ব্যবহার করে JSX render করতে পারেন যেমন `if` statements, `&&`, and `? :` operators.
 
 </Intro>
 
 <YouWillLearn>
 
-* How to return different JSX depending on a condition
-* How to conditionally include or exclude a piece of JSX
-* Common conditional syntax shortcuts you’ll encounter in React codebases
+* একটি শর্তের উপর নির্ভর করে কিভাবে বিভিন্ন JSX return দিতে হয়
+* কিভাবে শর্তসাপেক্ষে JSX এর একটি অংশ অন্তর্ভুক্ত বা বাদ দিতে হয়
+* বহুল ব্যবহৃত শর্তসাপেক্ষ syntax এর শর্টকাট যেগুলো আপনি React এর codebase এ প্রায়শই দেখতে পাবেন।
 
 </YouWillLearn>
 
