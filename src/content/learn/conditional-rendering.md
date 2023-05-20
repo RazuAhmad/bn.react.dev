@@ -17,9 +17,9 @@ React এর মধ্যে, আপনি শর্তসাপেক্ষে 
 
 </YouWillLearn>
 
-## Conditionally returning JSX {/*conditionally-returning-jsx*/}
+## শর্তসাপেক্ষে JSX Return করতেছে {/*conditionally-returning-jsx*/}
 
-Let’s say you have a `PackingList` component rendering several `Item`s, which can be marked as packed or not:
+ধরা যাক আপনার একটি `PackingList` component আছে যেটা render করতেছে কিছু `Item`s, যেগুলো pack করা বা না করা হিসাবে চিহ্নিত করা যেতে পারে:
 
 <Sandpack>
 
@@ -53,9 +53,9 @@ export default function PackingList() {
 
 </Sandpack>
 
-Notice that some of the `Item` components have their `isPacked` prop set to `true` instead of `false`. You want to add a checkmark (✔) to packed items if `isPacked={true}`.
+লক্ষ্য করুন যে কিছু `Item` components তাদের `isPacked` prop কে `false` এর পরিবর্তে `true` হিসেবে সেট করেছে। আপনি packed items গুলোতে একটি চেকমার্ক(✔) যোগ করতে চাচ্ছেন যদি `isPacked={true}` হয়।
 
-You can write this as an [`if`/`else` statement](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/if...else) like so:
+আপনি নিম্নোক্তভাবে এটাকে একটা [`if`/`else` statement](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/if...else) হিসেবে লিখতে পারেন:
 
 ```js
 if (isPacked) {
@@ -64,7 +64,7 @@ if (isPacked) {
 return <li className="item">{name}</li>;
 ```
 
-If the `isPacked` prop is `true`, this code **returns a different JSX tree.** With this change, some of the items get a checkmark at the end:
+যদি `isPacked` prop টি `true` হয়, তাহলে এই code গুলো **একটা ভিন্ন JSX tree return করে।** এই পরিবর্তনের সাথে, কিছু আইটেমের শেষে একটি চেকমার্ক যুক্ত হয়:
 
 <Sandpack>
 
@@ -101,13 +101,13 @@ export default function PackingList() {
 
 </Sandpack>
 
-Try editing what gets returned in either case, and see how the result changes!
+উভয় ক্ষেত্রেই return হওয়া কোড edit করে দেখুন এবং দেখুন কিভাবে ফলাফল পরিবর্তন হয়ে যায়!
 
-Notice how you're creating branching logic with JavaScript's `if` and `return` statements. In React, control flow (like conditions) is handled by JavaScript.
+লক্ষ করুন, আপনি কীভাবে জাভাস্ক্রিপ্টের `if` এবং `return` statements ব্যবহার করে branching logic তৈরি করছেন। React এ JavaScript দ্বারা কন্ট্রোল ফ্লো (যেমন শর্তাদি) নিয়ন্ত্রণ করা হয়।
 
-### Conditionally returning nothing with `null` {/*conditionally-returning-nothing-with-null*/}
+### `null` ব্যবহার করে শর্তানুযায়ী কোন কিছুই return না করা {/*conditionally-returning-nothing-with-null*/}
 
-In some situations, you won't want to render anything at all. For example, say you don't want to show packed items at all. A component must return something. In this case, you can return `null`:
+কিছু পরিস্থিতিতে, আপনি কোন কিছুই render করতে চাইবেন না। উদাহরণস্বরূপ, ধরুন আপনি packed items গুলোকে মোটেই দেখাতে চান না। যেহেতু, একটি component কে অবশ্যই কিছু না কিছু রিটার্ন করতে হবে। এই ক্ষেত্রে, আপনি `null` return করতে পারেন।
 
 ```js
 if (isPacked) {
@@ -116,7 +116,7 @@ if (isPacked) {
 return <li className="item">{name}</li>;
 ```
 
-If `isPacked` is true, the component will return nothing, `null`. Otherwise, it will return JSX to render.
+যদি `isPacked` true হয়, তাহলে component কিছুই return করবে না, `null`। অন্যথায়, এটি render করার জন্য JSX return করবে।
 
 <Sandpack>
 
@@ -153,23 +153,23 @@ export default function PackingList() {
 
 </Sandpack>
 
-In practice, returning `null` from a component isn't common because it might surprise a developer trying to render it. More often, you would conditionally include or exclude the component in the parent component's JSX. Here's how to do that!
+বাস্তবে, একটা component থেকে সাধারণত `null` return করা হয় না কারণ এটি render করার চেষ্টা করতেছে এমন ডেভেলপারকে এই ব্যাপারটি আশ্চর্য করতে পারে। প্রায়শই, আপনি শর্তসাপেক্ষে মূল component এর JSX-এ component টি অন্তর্ভুক্ত করবেন অথবা বাদ দিবেন। এখানে দেখুন কিভাবে এটি করতে হয়!
 
-## Conditionally including JSX {/*conditionally-including-jsx*/}
+## শর্তানুযায়ী JSX এর অন্তর্ভুক্তিকরণ {/*conditionally-including-jsx*/}
 
-In the previous example, you controlled which (if any!) JSX tree would be returned by the component. You may already have noticed some duplication in the render output:
+আগের উদাহরণে, আপনি নিয়ন্ত্রণ করেছেন কোন (যদি থাকে!) JSX tree টা component দ্বারা return দেওয়া হবে। আপনি ইতিমধ্যেই render output কিছু পুনরাবৃত্তি লক্ষ্য করেছেন:
 
 ```js
 <li className="item">{name} ✔</li>
 ```
 
-is very similar to
+অনেকটা অনুরূপ দ্বিতীয়টার সাথে
 
 ```js
 <li className="item">{name}</li>
 ```
 
-Both of the conditional branches return `<li className="item">...</li>`:
+উভয় শর্তাধীন branches এটা return করে `<li className="item">...</li>`:
 
 ```js
 if (isPacked) {
@@ -178,7 +178,7 @@ if (isPacked) {
 return <li className="item">{name}</li>;
 ```
 
-While this duplication isn't harmful, it could make your code harder to maintain. What if you want to change the `className`? You'd have to do it in two places in your code! In such a situation, you could conditionally include a little JSX to make your code more [DRY.](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself)
+যদিও এই পুনরাবৃত্তি ক্ষতিকর নয়, তবে এটা আপনার code কে maintain করা কঠিন করে তুলতে পারে। ধরুন, আপনি `className` টা পরিবর্তন করতে চাচ্ছেন? আপনাকে আপনার code এর দুটি জায়গায় এই একই কাজটা করতে হবে! এইরকম পরিস্থিতিতে, আপনি শর্তানুযায়ী সামান্য কিছু JSX যোগ করে আপনার code কে আরও বেশী [DRY.](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself) করতে পারেন।
 
 ### Conditional (ternary) operator (`? :`) {/*conditional-ternary-operator--*/}
 
