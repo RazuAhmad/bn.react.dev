@@ -180,11 +180,11 @@ return <li className="item">{name}</li>;
 
 যদিও এই পুনরাবৃত্তি ক্ষতিকর নয়, তবে এটা আপনার code কে maintain করা কঠিন করে তুলতে পারে। ধরুন, আপনি `className` টা পরিবর্তন করতে চাচ্ছেন? আপনাকে আপনার code এর দুটি জায়গায় এই একই কাজটা করতে হবে! এইরকম পরিস্থিতিতে, আপনি শর্তানুযায়ী সামান্য কিছু JSX যোগ করে আপনার code কে আরও বেশী [DRY.](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself) করতে পারেন।
 
-### Conditional (ternary) operator (`? :`) {/*conditional-ternary-operator--*/}
+### শর্তসাপেক্ষ (ternary) operator (`? :`) {/*conditional-ternary-operator--*/}
 
-JavaScript has a compact syntax for writing a conditional expression -- the [conditional operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_Operator) or "ternary operator".
+জাভাস্ক্রিপ্টে শর্তমূলক অভিব্যক্তি লেখার জন্য একটি সংক্ষিপ্ত syntax রয়েছে। -- the [শর্তসাপেক্ষ operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_Operator) or "ternary operator".
 
-Instead of this:
+এটার পরিবর্তে:
 
 ```js
 if (isPacked) {
@@ -193,7 +193,7 @@ if (isPacked) {
 return <li className="item">{name}</li>;
 ```
 
-You can write this:
+আপনি এটি লিখতে পারেন:
 
 ```js
 return (
@@ -203,13 +203,13 @@ return (
 );
 ```
 
-You can read it as *"if `isPacked` is true, then (`?`) render `name + ' ✔'`, otherwise (`:`) render `name`"*.
+আপনি এটি এভাবে পড়তে পারেন *"if `isPacked` is true, then (`?`) render `name + ' ✔'`, otherwise (`:`) render `name`"*.
 
 <DeepDive>
 
-#### Are these two examples fully equivalent? {/*are-these-two-examples-fully-equivalent*/}
+#### এই দুটি উদাহরণ কি সম্পূর্ণরূপে একই? {/*are-these-two-examples-fully-equivalent*/}
 
-If you're coming from an object-oriented programming background, you might assume that the two examples above are subtly different because one of them may create two different "instances" of `<li>`. But JSX elements aren't "instances" because they don't hold any internal state and aren't real DOM nodes. They're lightweight descriptions, like blueprints. So these two examples, in fact, *are* completely equivalent. [Preserving and Resetting State](/learn/preserving-and-resetting-state) goes into detail about how this works.
+আপনি যদি একটি object-oriented programming ব্যাকগ্রাউন্ড থেকে এসে থাকেন, আপনি ভাবতে পারেন যে উপরের দুটি উদাহরণ সূক্ষ্মভাবে ভিন্ন কারণ one of them may create two different "instances" of `<li>`. But JSX elements aren't "instances" because they don't hold any internal state and aren't real DOM nodes. They're lightweight descriptions, like blueprints. So these two examples, in fact, *are* completely equivalent. [Preserving and Resetting State](/learn/preserving-and-resetting-state) goes into detail about how this works.
 
 </DeepDive>
 
