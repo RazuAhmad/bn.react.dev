@@ -182,7 +182,7 @@ return <li className="item">{name}</li>;
 
 ### শর্তসাপেক্ষ (ternary) operator (`? :`) {/*conditional-ternary-operator--*/}
 
-জাভাস্ক্রিপ্টে শর্তমূলক অভিব্যক্তি লেখার জন্য একটি সংক্ষিপ্ত syntax রয়েছে। -- the [শর্তসাপেক্ষ operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_Operator) or "ternary operator".
+জাভাস্ক্রিপ্টে শর্তমূলক এক্সপ্রেশন লেখার জন্য একটি সংক্ষিপ্ত syntax রয়েছে। -- [conditional operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_Operator) or "ternary operator".
 
 এটার পরিবর্তে:
 
@@ -209,11 +209,11 @@ return (
 
 #### এই দুটি উদাহরণ কি সম্পূর্ণরূপে একই? {/*are-these-two-examples-fully-equivalent*/}
 
-আপনি যদি একটি object-oriented programming ব্যাকগ্রাউন্ড থেকে এসে থাকেন, আপনি ভাবতে পারেন যে উপরের দুটি উদাহরণ সূক্ষ্মভাবে ভিন্ন কারণ one of them may create two different "instances" of `<li>`. But JSX elements aren't "instances" because they don't hold any internal state and aren't real DOM nodes. They're lightweight descriptions, like blueprints. So these two examples, in fact, *are* completely equivalent. [Preserving and Resetting State](/learn/preserving-and-resetting-state) goes into detail about how this works.
+আপনি যদি একটি object-oriented programming ব্যাকগ্রাউন্ড থেকে এসে থাকেন, আপনি ভাবতে পারেন যে উপরের দুটি উদাহরণ সূক্ষ্মভাবে ভিন্ন কারণ তাদের মধ্যে একটি `<li>` এর দুটি ভিন্ন "instances" তৈরি করতে পারে। কিন্তু JSX এর উপাদানগুলি "instances" নয় কারণ তারা কোনও অভ্যন্তরীণ state কে ধরে রাখে না এবং তারা প্রকৃত DOM nodes নয়। এগুলি হল অনেকটা blueprints এর মতো হালকা বর্ণনা। সুতরাং এই দুটি উদাহরণ, আসলে, সম্পূর্ণরূপে একই। [Preserving and Resetting State](/learn/preserving-and-resetting-state) আরও ডিটেইলসে আলোচনা করে এটা কিভাবে কাজ করে সে সম্পর্কে।
 
 </DeepDive>
 
-Now let's say you want to wrap the completed item's text into another HTML tag, like `<del>` to strike it out. You can add even more newlines and parentheses so that it's easier to nest more JSX in each of the cases:
+এখন ধরা যাক আপনি সম্পূর্ণ আইটেমের text গুলোকে অন্য আর একটি HTML ট্যাগে মোড়াতে চান, যেমন `<del>` ট্যাগটি দ্বারা সেই টেক্সট গুলোকে মুছে ফেলার জন্য। আপনি আরও নতুন লাইন এবং বন্ধনী যোগ করতে পারেন যাতে প্রতিটি ক্ষেত্রে আরও JSX নেস্ট করা সহজ হয়:
 
 <Sandpack>
 
