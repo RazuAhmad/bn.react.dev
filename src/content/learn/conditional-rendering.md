@@ -257,11 +257,11 @@ export default function PackingList() {
 
 </Sandpack>
 
-This style works well for simple conditions, but use it in moderation. If your components get messy with too much nested conditional markup, consider extracting child components to clean things up. In React, markup is a part of your code, so you can use tools like variables and functions to tidy up complex expressions.
+এই স্টাইলটি সিম্পল শর্তগুলির জন্য ভালোভাবে কাজ করে, কিন্তু এটিকে পরিমিত পরিমাণে ব্যবহার করুন। যদি আপনার components গুলো খুব বেশি নেস্টেড কন্ডিশনাল মার্কআপের কারণে অগোছালো হয়ে যায়, সেক্ষেত্রে কোড ক্লিন রাখার জন্য চাইল্ড components গুলোকে extract করার ব্যাপারটি বিবেচনা করুন। React এ, মার্কআপ আপনার কোডের একটি অংশ, তাই আপনি জটিল expressions গুলোকে গুছিয়ে রাখতে variables এবং functions মতো টুলস গুলো ব্যবহার করতে পারেন।
 
-### Logical AND operator (`&&`) {/*logical-and-operator-*/}
+### লজিক্যাল AND অপারেটর (`&&`) {/*logical-and-operator-*/}
 
-Another common shortcut you'll encounter is the [JavaScript logical AND (`&&`) operator.](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_AND#:~:text=The%20logical%20AND%20(%20%26%26%20)%20operator,it%20returns%20a%20Boolean%20value.) Inside React components, it often comes up when you want to render some JSX when the condition is true, **or render nothing otherwise.** With `&&`, you could conditionally render the checkmark only if `isPacked` is `true`:
+আরেকটি সাধারণ শর্টকাট যা আপনি দেখে থাকবেন তা হলো [জাভাস্ক্রিপ্ট লজিক্যাল AND (`&&`) অপারেটর।](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_AND#:~:text=The%20logical%20AND%20(%20%26%26%20)%20operator,it%20returns%20a%20Boolean%20value.) React components গুলোর ভিতরে, যখন আপনি নির্দিষ্ট শর্তটি সত্য হলে কিছু JSX render করতে চান, **অথবা কিছুই render করতে চান না। ** `&&` এর মাধ্যমে, আপনি শর্তসাপেক্ষে চেকমার্ক render করতে পারেন শুধুমাত্র যদি `isPacked` `সত্য` হয়:
 
 ```js
 return (
@@ -271,9 +271,9 @@ return (
 );
 ```
 
-You can read this as *"if `isPacked`, then (`&&`) render the checkmark, otherwise, render nothing"*.
+আপনি এটিকে এভাবে পড়তে পারেন *"if `isPacked`, then (`&&`)  চেকমার্ক render করুন, অন্যথায়, কিছুই render করবেন না।"*.
 
-Here it is in action:
+এটির কার্যপ্রক্রিয়া এখানে দেখানো হলো:
 
 <Sandpack>
 
@@ -311,7 +311,7 @@ export default function PackingList() {
 
 </Sandpack>
 
-A [JavaScript && expression](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_AND) returns the value of its right side (in our case, the checkmark) if the left side (our condition) is `true`. But if the condition is `false`, the whole expression becomes `false`. React considers `false` as a "hole" in the JSX tree, just like `null` or `undefined`, and doesn't render anything in its place.
+একটি [জাভাস্ক্রিপ্ট && এক্সপ্রেশন](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_AND) তার ডান দিকের মান (আমাদের ক্ষেত্রে, চেকমার্ক) return করে যদি বাম দিকে (আমাদের শর্ত) `সত্য` হয়। But if the condition is `false`, the whole expression becomes `false`. React considers `false` as a "hole" in the JSX tree, just like `null` or `undefined`, and doesn't render anything in its place.
 
 
 <Pitfall>
